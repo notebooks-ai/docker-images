@@ -5,7 +5,7 @@
 Run Jupyter labs in docker:
 
 ```bash
-docker run -p 5000:8888 -it data-science-python-3.6 jupyter lab --i 0.0.0.0 --port=8888 --no-browser --allow-root
+docker run -p 5000:8888 -e JUPYTER_TOKEN=$TOKEN -it data-science-python-3.6 jupyter lab
 ```
 
 Examples:

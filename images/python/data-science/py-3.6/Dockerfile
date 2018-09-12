@@ -24,8 +24,19 @@ RUN apt-get install -y --no-install-recommends \
     libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libgtk2.0-dev \
     liblapacke-dev checkinstall
 
+RUN rm -f /usr/bin/python3 /usr/bin/python3m /usr/bin/pip /usr/local/bin/pip /usr/local/bin/pip3
+RUN ln -s /usr/bin/python3.6 /usr/bin/python3
+RUN ln -s /usr/bin/python3.6m /usr/bin/python3m
+RUN ln -s /usr/bin/pip3 /usr/bin/pip
+
 WORKDIR /app
 ADD . /app
 
+RUN mkdir /root/.jupyter && cp jupyter_notebook_config.py /root/.jupyter
+
+RUN pip install --no-cache-dir -U setuptools
+
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+
+RUN rm -f Dockerfile requirements.txt jupyter_notebook_config.py
