@@ -1,4 +1,5 @@
 import os
+
 c.NotebookApp.open_browser = False
 c.NotebookApp.ip = '*'
 c.NotebookApp.token = os.environ['JUPYTER_TOKEN']
@@ -11,6 +12,7 @@ c.NotebookApp.tornado_settings = {
         'Access-Control-Allow-Origin': '*',
   }
 }
+c.NotebookApp.notebook_dir = 'user_data'
 
 # Configuration file for jupyter-notebook.
 
