@@ -1,4 +1,4 @@
-FROM python:3.6-jessie
+FROM python:2.7-jessie
 MAINTAINER Santiago Basulto <santiago@rmotr.com>
 
 # Supress warnings about missing front-end. As recommended at:
