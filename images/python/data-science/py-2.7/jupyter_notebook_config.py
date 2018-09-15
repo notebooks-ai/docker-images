@@ -12,7 +12,8 @@ c.NotebookApp.tornado_settings = {
         'Access-Control-Allow-Origin': '*',
   }
 }
-c.NotebookApp.notebook_dir = 'user_data'
+
+c.NotebookApp.notebook_dir = os.environ.get('JUPYTER_NOTEBOOK_DIR', '')
 
 # Configuration file for jupyter-notebook.
 

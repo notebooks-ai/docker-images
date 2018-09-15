@@ -8,7 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y apt-file && \
     apt-file update && \
-    apt-get install -y vim unzip openssh-client curl
+    apt-get install -y vim unzip openssh-client curl texlive-xetex
 
 WORKDIR /app
 ADD . /app
@@ -33,8 +33,10 @@ RUN jupyter serverextension enable --py jupyterlab_git
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @mflevine/jupyterlab_html"
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install jupyterlab-flake8"
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @ijmbarr/jupyterlab_spellchecker"
-RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @jupyterlab/xkcd-extension"
 
-RUN echo "echo 'Happy hacking ;)'" >> /root/.bashrc
+RUN echo "printf 'Happy hacking ❤️ RMOTR Team\n\n'" >> /root/.bashrc
+
+RUN mkdir -p /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/
+RUN echo '{"enabled": true}' > /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
 
 RUN rm -f Dockerfile requirements.txt jupyter_notebook_config.py
