@@ -5,10 +5,23 @@ MAINTAINER Santiago Basulto <santiago@rmotr.com>
 # http://stackoverflow.com/questions/22466255/is-it-possibe-to-answer-dialog-questions-when-installing-under-docker
 ARG DEBIAN_FRONTEND=noninteractive
 
+RUN printf "\n\n" >> /etc/apt/sources.list
+
+RUN echo '###### Debian Main Repos\n\
+  deb http://deb.debian.org/debian/ oldstable main contrib non-free\n\
+  deb-src http://deb.debian.org/debian/ oldstable main contrib non-free\n\
+  deb http://deb.debian.org/debian/ oldstable-updates main contrib non-free\n\
+  deb-src http://deb.debian.org/debian/ oldstable-updates main contrib non-free\n\
+  deb http://deb.debian.org/debian-security oldstable/updates main\n\
+  deb-src http://deb.debian.org/debian-security oldstable/updates main\n\
+  deb http://ftp.debian.org/debian jessie-backports main\n\
+  deb-src http://ftp.debian.org/debian jessie-backports main' >> /etc/apt/sources.list
+
 RUN apt-get update && \
-    apt-get install -y apt-file && \
+    apt-get install -y apt-file apt-utils && \
     apt-file update && \
-    apt-get install -y vim unzip openssh-client curl texlive-xetex
+    apt-get install -y vim unzip openssh-client curl texlive-xetex pandoc xzdec && \
+    apt-get build-dep -y python-lxml
 
 WORKDIR /app
 ADD . /app
