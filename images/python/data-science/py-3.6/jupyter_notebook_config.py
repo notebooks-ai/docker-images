@@ -1,7 +1,7 @@
 import os
 
 c.NotebookApp.open_browser = False
-c.NotebookApp.ip = '*'
+c.NotebookApp.ip = os.environ.get('JUPYTER_NOTEBOOK_IP', '0.0.0.0')
 c.NotebookApp.token = os.environ['JUPYTER_TOKEN']
 c.NotebookApp.allow_root = True
 c.NotebookApp.tornado_settings = {
