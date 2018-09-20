@@ -44,12 +44,16 @@ RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @jupy
 RUN jupyter serverextension enable --py jupyterlab_git
 
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @mflevine/jupyterlab_html"
-RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install jupyterlab-flake8"
+#RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install jupyterlab-flake8"
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @ijmbarr/jupyterlab_spellchecker"
+#RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install jupyterlab_voyager"
 
-RUN echo "printf 'Happy hacking ❤️ RMOTR Team\n\n'" >> /root/.bashrc
+RUN echo "printf 'Happy hacking ❤️ RMOTR Team'" >> /root/.bashrc
+RUN echo "printf '\n\n'" >> /root/.bashrc
+
+RUN echo "export PS1='\[\033[38;5;38m\]\[\033[0m\033[38;5;15m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '" >> /root/.bashrc
 
 RUN mkdir -p /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/
-RUN echo '{"enabled": true}' > /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
+RUN echo '{"enabled": false}' > /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
 
 RUN rm -f Dockerfile requirements.txt jupyter_notebook_config.py
