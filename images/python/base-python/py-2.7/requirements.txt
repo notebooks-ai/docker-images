@@ -1,3 +1,5 @@
 ipython
 jupyter
 jupyterlab
+jupyterlab-git
+flake8
