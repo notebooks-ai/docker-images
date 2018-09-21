@@ -1,0 +1,5 @@
+Flask
+Django
+sqlalchemy
+psycopg2-binary
+pymysql

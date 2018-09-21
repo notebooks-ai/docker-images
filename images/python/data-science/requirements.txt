@@ -1,14 +1,13 @@
 requests
 pytest==3.8
 Pillow==5.2
-s3fs
+opencv-python
 
 pandas==0.23
 numpy==1.14.5
 scipy==1.1
 statsmodels==0.9.0
 
-# Pandas reqs
 xarray
 openpyxl
 xlrd
@@ -26,10 +25,3 @@ bokeh==0.13
 holoviews==1.10.7
 
 scikit-learn
-Keras
-tensorflow
-opencv-python
-
-ipython
-jupyter
-jupyterlab
