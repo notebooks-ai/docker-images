@@ -13,6 +13,7 @@ c.NotebookApp.tornado_settings = {
   }
 }
 
+c.NotebookApp.base_url = os.environ.get('JUPYTER_NOTEBOOK_BASE_URL', '/')
 c.NotebookApp.notebook_dir = os.environ.get('JUPYTER_NOTEBOOK_DIR', '')
 
 # Configuration file for jupyter-notebook.
