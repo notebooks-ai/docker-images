@@ -1,4 +1,4 @@
-FROM base-python:3.6
+FROM data-science:python
 MAINTAINER Santiago Basulto <santiago@rmotr.com>
 
 # Supress warnings about missing front-end. As recommended at:
