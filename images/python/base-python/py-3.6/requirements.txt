@@ -1,5 +1,5 @@
 ipython
 jupyter
-jupyterlab
+jupyterlab==0.35.4
 jupyterlab-git
 flake8

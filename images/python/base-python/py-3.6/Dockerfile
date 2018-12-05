@@ -25,7 +25,7 @@ RUN apt-get update && \
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && nvm install stable"
 
-RUN echo "printf 'Happy hacking ❤️ RMOTR Team'" >> /root/.bashrc
+RUN echo "printf 'Happy hacking ❤️  RMOTR Team'" >> /root/.bashrc
 RUN echo "printf '\n\n'" >> /root/.bashrc
 
 RUN echo "export PS1='\[\033[38;5;38m\]\[\033[0m\033[38;5;15m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '" >> /root/.bashrc
@@ -44,7 +44,7 @@ RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @jupy
 RUN jupyter serverextension enable --py jupyterlab_git
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @mflevine/jupyterlab_html"
 #RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install jupyterlab-flake8"
-RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @ijmbarr/jupyterlab_spellchecker"
+#RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @ijmbarr/jupyterlab_spellchecker"
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @jupyterlab/plotly-extension"
 #RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install jupyterlab_voyager"
 
