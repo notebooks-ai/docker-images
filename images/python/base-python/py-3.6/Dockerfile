@@ -39,7 +39,6 @@ RUN pip install -U setuptools
 RUN pip install -r requirements.txt
 
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @oriolmirosa/jupyterlab_materialdarker"
-RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install jupyterlab_bokeh"
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @jupyterlab/git"
 RUN jupyter serverextension enable --py jupyterlab_git
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @mflevine/jupyterlab_html"

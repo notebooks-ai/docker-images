@@ -11,3 +11,7 @@ ADD . /app
 RUN pip install -r requirements.txt
 
 RUN rm -f requirements.txt
+
+# Extra lab extensions
+RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install jupyterlab_bokeh"
+RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @jupyterlab/plotly-extension"
