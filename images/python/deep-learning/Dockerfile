@@ -1,4 +1,4 @@
-FROM rmotr/data-science-python:v2
+FROM rmotr/data-science-python:v3
 MAINTAINER Santiago Basulto <santiago@rmotr.com>
 
 # Supress warnings about missing front-end. As recommended at:
