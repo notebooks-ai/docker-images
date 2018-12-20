@@ -1,5 +1,11 @@
 import os
 
+def parse_bool_from_env_var(value):
+    if value.lower() in ('yes', 'true', 't', '1'):
+        return True
+    return False
+
+
 c.NotebookApp.open_browser = False
 c.NotebookApp.ip = os.environ.get('JUPYTER_NOTEBOOK_IP', '0.0.0.0')
 c.NotebookApp.token = os.environ['JUPYTER_TOKEN']
@@ -15,6 +21,11 @@ c.NotebookApp.tornado_settings = {
 
 c.NotebookApp.base_url = os.environ.get('JUPYTER_NOTEBOOK_BASE_URL', '/')
 c.NotebookApp.notebook_dir = os.environ.get('JUPYTER_NOTEBOOK_DIR', '')
+
+# RMOTR solutions extension
+c.JupyterLabRmotrSolutions.is_enabled = parse_bool_from_env_var(
+    os.environ.get('RMOTR_SOLUTIONS_ENABLED', 'False'))
+c.JupyterLabRmotrSolutions.role = os.environ.get('RMOTR_SOLUTIONS_ROLE', 'student')
 
 # Configuration file for jupyter-notebook.
 

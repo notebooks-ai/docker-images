@@ -3,3 +3,4 @@ jupyter
 jupyterlab==0.35.4
 jupyterlab-git==0.4.4
 flake8
+jupyterlab-solutions==0.0.1
