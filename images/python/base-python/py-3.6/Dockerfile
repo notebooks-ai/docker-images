@@ -58,7 +58,7 @@ RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @jupy
 
 ## RMOTR solutions
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @rmotr/jupyterlab-solutions
-jupyter serverextension enable jupyterlab_rmotr_solutions
+RUN jupyter serverextension enable jupyterlab_rmotr_solutions
 
 
 RUN mkdir -p /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/
