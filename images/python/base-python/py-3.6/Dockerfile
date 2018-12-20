@@ -38,14 +38,28 @@ RUN mkdir /root/.jupyter && cp jupyter_notebook_config.py /root/.jupyter
 RUN pip install -U setuptools
 RUN pip install -r requirements.txt
 
+# Jupyter Extensions
+
+## materialdarker
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @oriolmirosa/jupyterlab_materialdarker"
+
+## git
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @jupyterlab/git"
 RUN jupyter serverextension enable --py jupyterlab_git
+
+## html
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @mflevine/jupyterlab_html"
-#RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install jupyterlab-flake8"
-#RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @ijmbarr/jupyterlab_spellchecker"
+
+## spellchecker
+RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @ijmbarr/jupyterlab_spellchecker"
+
+## plotly
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @jupyterlab/plotly-extension"
-#RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install jupyterlab_voyager"
+
+## RMOTR solutions
+RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @rmotr/jupyterlab-solutions
+jupyter serverextension enable jupyterlab_rmotr_solutions
+
 
 RUN mkdir -p /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/
 RUN echo '{"enabled": false}' > /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
