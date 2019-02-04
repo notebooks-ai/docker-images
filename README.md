@@ -1,5 +1,3 @@
-<p align="center"><img width="400" src="https://user-images.githubusercontent.com/872296/27511815-0e1cb62e-5904-11e7-8fe0-e1116e7a6ced.png"></p>
-
 # RMOTR Docker Images
 
 Build the images:
