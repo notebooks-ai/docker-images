@@ -1,4 +1,4 @@
-FROM rmotr/base-python-3.6:v3
+FROM rmotr/base-python-3.6:v4
 MAINTAINER Santiago Basulto <santiago@rmotr.com>
 
 # Supress warnings about missing front-end. As recommended at:

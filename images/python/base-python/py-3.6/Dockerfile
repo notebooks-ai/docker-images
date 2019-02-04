@@ -53,11 +53,8 @@ RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @mfle
 ## spellchecker
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @ijmbarr/jupyterlab_spellchecker"
 
-## plotly
-RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @jupyterlab/plotly-extension"
-
 ## RMOTR solutions
-RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @rmotr/jupyterlab-solutions
+RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @rmotr/jupyterlab-solutions"
 RUN jupyter serverextension enable jupyterlab_rmotr_solutions
 
 
