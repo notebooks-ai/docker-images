@@ -1,5 +1,5 @@
-FROM rmotr/base-python-3.6:v5
-MAINTAINER Santiago Basulto <santiago@rmotr.com>
+FROM notebooksai/base-python-3.6:v1
+MAINTAINER Team Notebooks AI <team@notebooks.ai>
 
 # Supress warnings about missing front-end. As recommended at:
 # http://stackoverflow.com/questions/22466255/is-it-possibe-to-answer-dialog-questions-when-installing-under-docker

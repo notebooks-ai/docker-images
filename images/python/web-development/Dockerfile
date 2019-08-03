@@ -1,5 +1,5 @@
 FROM base-python:3.6
-MAINTAINER Santiago Basulto <santiago@rmotr.com>
+MAINTAINER Team Notebooks AI <team@notebooks.ai>
 
 # Supress warnings about missing front-end. As recommended at:
 # http://stackoverflow.com/questions/22466255/is-it-possibe-to-answer-dialog-questions-when-installing-under-docker

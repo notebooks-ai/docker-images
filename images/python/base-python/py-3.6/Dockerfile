@@ -1,5 +1,5 @@
-FROM python:3.6-jessie
-MAINTAINER Santiago Basulto <santiago@rmotr.com>
+FROM python:3.6-stretch
+MAINTAINER Team Notebooks AI <team@notebooks.ai>
 
 # Supress warnings about missing front-end. As recommended at:
 # http://stackoverflow.com/questions/22466255/is-it-possibe-to-answer-dialog-questions-when-installing-under-docker
@@ -9,12 +9,8 @@ RUN printf "\n\n" >> /etc/apt/sources.list
 RUN echo '###### Debian Main Repos\n\
   deb http://deb.debian.org/debian/ oldstable main contrib non-free\n\
   deb-src http://deb.debian.org/debian/ oldstable main contrib non-free\n\
-  deb http://deb.debian.org/debian/ oldstable-updates main contrib non-free\n\
-  deb-src http://deb.debian.org/debian/ oldstable-updates main contrib non-free\n\
   deb http://deb.debian.org/debian-security oldstable/updates main\n\
-  deb-src http://deb.debian.org/debian-security oldstable/updates main\n\
-  deb http://ftp.debian.org/debian jessie-backports main\n\
-  deb-src http://ftp.debian.org/debian jessie-backports main' >> /etc/apt/sources.list
+  deb-src http://deb.debian.org/debian-security oldstable/updates main' >> /etc/apt/sources.list
 
 RUN apt-get update && \
     apt-get install -y apt-file apt-utils && \
@@ -25,10 +21,13 @@ RUN apt-get update && \
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && nvm install stable"
 
-RUN echo "printf 'Happy hacking ❤️  RMOTR Team'" >> /root/.bashrc
-RUN echo "printf '\n\n'" >> /root/.bashrc
+# Install bash-completion
+RUN apt-get install bash-completion
+RUN echo "source /etc/bash_completion\n" >> /root/.bashrc
 
-RUN echo "export PS1='\[\033[38;5;38m\]\[\033[0m\033[38;5;15m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '" >> /root/.bashrc
+RUN echo "printf 'Happy hacking ❤️  Notebooks AI Team'" >> /root/.bashrc
+RUN echo "printf '\n\n'" >> /root/.bashrc
+RUN echo "export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w \n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '" >> /root/.bashrc
 
 WORKDIR /app
 ADD . /app
@@ -57,6 +56,9 @@ RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @ijmb
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @rmotr/jupyterlab-solutions"
 RUN jupyter serverextension enable jupyterlab_rmotr_solutions
 
+## nbdime
+#RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install nbdime"
+#RUN jupyter serverextension enable nbdime
 
 RUN mkdir -p /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/
 RUN echo '{"enabled": false}' > /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings

@@ -1,4 +1,4 @@
-# RMOTR Docker Images
+# Notebooks AI Docker Images
 
 Build the images:
 
