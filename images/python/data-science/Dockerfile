@@ -1,4 +1,4 @@
-FROM notebooksai/base-python-3.6:v1
+FROM notebooksai/base-python-3.7:v1
 MAINTAINER Team Notebooks AI <team@notebooks.ai>
 
 # Supress warnings about missing front-end. As recommended at:
