@@ -15,9 +15,14 @@ RUN echo '###### Debian Main Repos\n\
 RUN apt-get update && \
     apt-get install -y apt-file apt-utils && \
     apt-file update && \
-    apt-get install -y vim unzip openssh-client curl texlive-xetex pandoc xzdec && \
+    apt-get install -y vim unzip openssh-client curl texlive-xetex pandoc xzdec libmpc-dev && \
     apt-get build-dep -y python-lxml
 
+# Install bash-completion
+RUN apt-get install bash-completion
+RUN echo "source /etc/bash_completion\n" >> /root/.bashrc
+
+# Install NodeJS
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && nvm install stable"
 
@@ -36,6 +41,7 @@ RUN mkdir /root/.jupyter && cp jupyter_notebook_config.py /root/.jupyter
 
 RUN pip install -U setuptools
 RUN pip install -r requirements.txt
+
 
 # Jupyter Extensions
 
@@ -57,8 +63,9 @@ RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install @rmot
 RUN jupyter serverextension enable jupyterlab_rmotr_solutions
 
 ## nbdime
-#RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install nbdime"
-#RUN jupyter serverextension enable nbdime
+RUN /bin/bash -c "source $HOME/.nvm/nvm.sh && jupyter labextension install nbdime"
+RUN jupyter serverextension enable nbdime
+
 
 RUN mkdir -p /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/
 RUN echo '{"enabled": false}' > /root/.jupyter/lab/user-settings/@jupyterlab/extensionmanager-extension/plugin.jupyterlab-settings
