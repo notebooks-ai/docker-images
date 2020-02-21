@@ -1,0 +1,5 @@
+flake8==3.7.9
+jupyterlab==1.2.6
+jupyterlab-git==0.9.0
+jupyterlab-solutions==0.0.1
+nbdime==1.1.0
