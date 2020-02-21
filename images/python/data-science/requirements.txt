@@ -1,13 +1,13 @@
-requests
-pytest==3.8
-Pillow==5.2
-opencv-python
+requests>=2.23
+pytest>=5.3
+Pillow~=7.0
+opencv-python~=4.2
 
-pandas==0.25.3
-numpy==1.17.4
-scipy==1.3.3
-statsmodels==0.10.2
-sympy==1.4
+pandas~=1.0
+numpy~=1.18
+scipy~=1.4
+statsmodels~=0.11
+sympy~=1.5
 
 xarray
 openpyxl
@@ -20,15 +20,13 @@ sqlalchemy
 psycopg2-binary
 pymysql
 
-matplotlib==2.2.3
-seaborn==0.9
-bokeh==0.13
-holoviews==1.10.7
+matplotlib~=3.1
+seaborn~=0.10
+bokeh~=1.4
+holoviews~=1.12
 
-dash==0.29.0
-dash-html-components==0.13.2
-dash-core-components==0.36.0
-dash-table==3.1.3
-plotly==3.4.0
+dash>=1.8
+plotly>=4.5
+jupyterlab-dash==0.1.0a3
 
-scikit-learn
+scikit-learn>=0.22
